@@ -1,0 +1,23 @@
+{
+    "ts-node": {
+        "files": true
+    },
+    "compilerOptions": {
+        "outDir": "build",
+        "target": "es2019",
+        "lib": ["es2017", "dom", "ES2019.Array"],
+        "moduleResolution": "node",
+        "module": "CommonJS",
+        "noUnusedParameters": false,
+        "noUnusedLocals": false,
+        "strict": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+        "types": ["node", "mocha"]
+    },
+    "include": ["temp", "./test", "./index.d.ts"],
+    "exclude": ["build", "node_modules"],
+    "files": ["./index.d.ts"]
+}

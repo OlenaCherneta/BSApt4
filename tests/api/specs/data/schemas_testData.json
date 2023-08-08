@@ -1,0 +1,161 @@
+{
+    "schema_allUsers": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "required": ["id", "avatar", "email", "userName"],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "avatar": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "userName": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+
+    "schema_oneUser": {
+        "type": "object",
+        "items": {
+            "id": "integer",
+            "avatar": "string",
+            "email": "string",
+            "userName": "string",
+            "password": "string"
+        }
+    },
+    "schema_allPosts":{
+        "type": "array",
+        "items": {
+            "id": "integer",
+            "createdAt": "string",
+            "author": {
+                "id": "integer",
+                "avatar": "string",
+                "email": "string",
+                "userName": "string"
+            },
+            "previewImage": "string",
+            "body": "string",
+            "comments": [
+                {
+                    "id": "integer",
+                    "createdAt": "string",
+                    "author": {
+                        "id": "integer",
+                        "avatar": "string",
+                        "email": "string",
+                        "userName": "string"
+                    },
+                    "body": "string",
+                    "reactions": [
+                        {
+                            "isLike": "boolean",
+                            "user": {
+                                "id": "integer",
+                                "avatar": "string",
+                                "email": "string",
+                                "userName": "string"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "reactions": [
+                {
+                    "isLike": "boolean",
+                    "user": {
+                        "id": "integer",
+                        "avatar": "string",
+                        "email": "string",
+                        "userName": "string"
+                    }
+                }
+            ]
+        }
+    },
+
+    "schema_onePost": {
+        "type": "object",
+        "items":{
+            "id": "integer",
+            "createdAt": "string",
+            "author": {
+                "id": "integer",
+                "avatar": "string",
+                "email": "string",
+                "userName": "string"
+            },
+            "previewImage": "string",
+            "body": "string",
+            "comments": [
+                {
+                    "id": "integer",
+                    "createdAt": "string",
+                    "author": {
+                        "id": "integer",
+                        "avatar": "string",
+                        "email": "string",
+                        "userName": "string"
+                    },
+                    "body": "string",
+                    "reactions": [
+                        {
+                            "isLike": "boolean",
+                            "user": {
+                                "id": "integer",
+                                "avatar": "string",
+                                "email": "string",
+                                "userName": "string"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "reactions": [
+                {
+                    "isLike": "boolean",
+                    "user": {
+                        "id": "integer",
+                        "avatar": "string",
+                        "email": "string",
+                        "userName": "string"
+                    }
+                }
+            ]
+        }
+    },
+
+     "schema_oneComment": {
+        "type": "object",
+        "items":{
+            "id": "integer",
+            "createdAt": "string",
+            "author": {
+                "id": "integer",
+                "avatar": "string",
+                "email": "string",
+                "userName": "string"
+            },
+            "body": "string",
+            "reactions": [
+                {
+                "isLike": "boolean",
+                "user": {
+                    "id": "integer",
+                    "avatar": "string",
+                    "email": "string",
+                    "userName": "string"
+                }
+                }
+            ]
+            }
+     }
+}

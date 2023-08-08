@@ -1,0 +1,40 @@
+stages:
+    - build
+    - test
+variables:
+    npm_config_cache: '$CI_PROJECT_DIR/.npm'
+
+cache:
+    key:
+        files:
+            - package.json
+    paths:
+        - .npm
+        - node_modules
+
+before_script:
+    - export NODE_OPTIONS=--max-old-space-size=8192
+
+install:
+    image: node:16
+    stage: build
+    script:
+        - npm ci
+    allow_failure: true
+
+test_api_dev:
+    image: node:16
+    allow_failure: true
+    stage: test
+    script:
+        - npm install --global mocha ts-node mocha-multi-reporters allure-mocha mocha-junit-reporter
+        - npm run clean && mocha --api.configName dev 'tests/api/specs/**/*_api-test.ts'
+        - node ./scripts/merge-api-reports.js
+        - npx rimraf ./output/junit-report*.xml
+    artifacts:
+        when: always
+        paths:
+            - output/
+            - allure-results/
+        expire_in: 1 week
+ 
